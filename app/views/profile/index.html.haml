@@ -1,0 +1,41 @@
+%h1 User Profile
+
+%h3 User posts
+%table
+	%tr
+		%th Name
+		%th Title
+		%th Link
+	- @user_posts.each do |post|
+		%tr
+			%td= post.name
+			%td= post.title
+			%td= link_to "Go to post", post_path(post.id)
+
+%br
+
+%h3 User comments
+%table
+	%tr
+		%th Body
+		%th Link to post
+	- @user_comments.each do |comment|
+		%tr
+			%td= comment.body
+			%td= link_to "Go to post", post_path(comment.post.id)
+
+%br
+
+%h3 User friends
+%table
+	%tr
+		%th login
+		%th Email
+	- @user_friends.each do |friend|
+		%tr
+			%td= friend.login
+			%td= friend.email
+
+%br
+
+=link_to "Posts", posts_path

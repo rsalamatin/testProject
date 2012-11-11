@@ -1,0 +1,13 @@
+%h1 All users
+%table
+	%tr
+		%th User login
+		%th Email
+		%th 
+	- @users.each do |user|
+		%tr
+			%td= user.login
+			%td= user.email
+			%td= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post
+
+%br
