@@ -8,6 +8,6 @@
 		%tr
 			%td= user.login
 			%td= user.email
-			%td= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post
+			%td= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post if user != current_user 
 
 %br
